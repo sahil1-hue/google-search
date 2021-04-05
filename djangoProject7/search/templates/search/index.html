@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+ <div>
+     {% csrf_token %}
+        <input type="text" name="search">
+      </div>
+      <p>
+        <button type="submit" > Search</button>
+      </p>
+    </div>
+    </form>
+
+   {% for listForSearch in SearchList %}
+<h1>{{ listForSearch.title }}</h1>
+<p>{{ listForSearch.snippet }}</p>
+
+<a type="button" href="{{ listForSearch.link }}" >Link to website</a>
+{% endfor %}
+</body>
+</html>
